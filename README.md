@@ -5,10 +5,6 @@
 * **AJEMA**, Natnael Birhanu
 ****
 **Project Video**
-
-  https://web.microsoftstream.com/video/ba5afb63-c794-4d2b-8655-e9e54a558514
-
-**Project Video**
   https://web.microsoftstream.com/video/ba5afb63-c794-4d2b-8655-e9e54a558514
 
 ### Prerequisites
