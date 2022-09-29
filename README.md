@@ -73,7 +73,7 @@ TBLPROPERTIES ('hbase.table.name' = 'twitter');
 
 ### RUN Projects
 1. kafkaproducer
-  * Run **Runner.java** class for streaming data from API to kafka queue
+  * Run **TwitterProducerApp.java** class for streaming data from API to kafka queue
 2. kafkaconsumer
   * Run **TwitterConsumerApp.java** class for kafka consumer + spark streaming to HBase
   * Run **SparkSqlHbase.java** class to connect spark SQL to HBase and query table
