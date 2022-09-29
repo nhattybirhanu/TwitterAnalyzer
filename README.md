@@ -1,6 +1,6 @@
 # Big Data Pipeline for Real-Time Twitter Dataset
 
-### Project Members
+### Project Member
 
 * **AJEMA**, Natnael Birhanu
 ****
