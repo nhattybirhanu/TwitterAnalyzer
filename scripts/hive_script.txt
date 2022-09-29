@@ -1,0 +1,18 @@
+Hive & Hbase Table SQL
+
+CREATE EXTERNAL TABLE IF NOT EXISTS twitter (
+  id STRING, text STRING, author_id STRING, keyword STRING, retweet_count BIGINT ,
+  reply_count BIGINT, like_count BIGINT, quote_count BIGINT
+)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' 
+WITH SERDEPROPERTIES (
+  'hbase.columns.mapping'=':key, tweet:text,tweet:keyword, tweet:author_id,tweet:retweet_count#b, 
+  tweet:reply_count#b, tweet:like_count#b, tweet:quote_count#b'
+) 
+TBLPROPERTIES ('hbase.table.name' = 'twitter');
+
+
+Hbase server status & Restart
+  service --status-all
+  sudo service hbase-master start;
+  service hbase-regionserver start;

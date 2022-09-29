@@ -1,0 +1,34 @@
+1. download kafka from https://kafka.apache.org/downloads
+2. choose Scala 2.13  - kafka_2.13-3.0.0.tgz (asc, sha512)
+3.  mkdir kafka && cd kafka
+4. tar -xvzf /home/cloudera/Downloads/kafka_2.13-3.0.0.tgz --strip 1
+5. test kafka: bin/kafka-topics.sh 
+6. cd ~
+8. sudo gedit $HOME/.bash_profile
+9. . ~/.bash_profile
+10. add the lines:
+	- export KAFKA_HOME=/home/cloudera/kafka/
+	- edit to include kafka: 
+		-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$KAFKA_HOME/bin
+11. . ~/.bash_profile and/or restart to effect changes
+11. test: 
+	- kafka-topics.sh
+12. start kafka server (assuming zookeeper is up and running)
+	- $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
+
+
+a- Create new topic
+$KAFKA_HOME/bin/kafka-topics.sh --create  --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic TwitterKafka
+result : Created topic "test".
+
+b-display list of topics
+$KAFKA_HOME/bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+c- publish or send some message
+$KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic TwitterKafka
+
+d- Start Consuming the above messages
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic TwitterKafka --from-beginning
+
+e- Remove Kafka Topic
+$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic TwitterKafka
